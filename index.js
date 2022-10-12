@@ -17,16 +17,16 @@ async function getCocktails() {
     console.log("error", err);
   }
   if (data) {
-    let html = `<h2>We found ${data.drinks.length} cocktails!</h2>`;
+    let html = `<h2 class="text-light">We found ${data.drinks.length} cocktails!</h2>`;
     if (data.drinks) {
       data.drinks.forEach((drink) => {
         html += `
             <div class="col-md-4 col-6 mt-2" data-id = "${drink.idDrink}">
-              <div class="card text-center">
-                <img src=${drink.strDrinkThumb} alt="card-img-top">
+              <div class="card text-center text-bg-dark ">
+                <img src=${drink.strDrinkThumb} alt="card-img-top" class="rounded-top">
                 <div class="card-body">
                   <h5 class="card-title">${drink.strDrink}</h5>
-                  <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-dark recipe-btn">More details</button>
+                  <button data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-outline-secondary recipe-btn">More details</button>
                 </div>
               </div>
             </div>
@@ -35,7 +35,7 @@ async function getCocktails() {
     }
     cocktailList.innerHTML = html;
   } else {
-    cocktailList.innerHTML = `<h2>Sorry, we couldn't find any results!</h2>`;
+    cocktailList.innerHTML = `<h2 class="text-light">Sorry, we couldn't find any results!</h2>`;
   }
 }
 
